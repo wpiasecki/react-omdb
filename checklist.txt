@@ -1,0 +1,16 @@
+tecnologias:
+[  ] react
+[  ] mobx
+[  ] jest
+[  ] styled components
+
+recursos:
+[  ] pesquisa de filmes
+[  ] area de login
+[  ] filmes prediletos
+
+pós:
+[  ] otimizar webpack
+[  ] cobertura de testes
+
+
