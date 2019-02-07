@@ -4,13 +4,15 @@ tecnologias:
 [  ] jest
 [  ] styled components
 
-recursos:
+funcionalidades:
+[ok] chave api omdb
+[ok] integrar chave omdb com store/api mobx
 [  ] pesquisa de filmes
+[  ] loading
 [  ] area de login
 [  ] filmes prediletos
 
-pós:
+projeto:
 [  ] otimizar webpack
 [  ] cobertura de testes
-
 

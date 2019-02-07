@@ -7,48 +7,32 @@ import { observer } from 'mobx-react';
 
 import MovieSearch from "./MovieSearch";
 import MovieList from "./MovieList";
+import MovieApi from "./MovieApi";
+import MovieFavorites from "./MovieFavorites";
+
+import MovieSearchStore from "./MovieSearchStore";
 
 @observer
-class App extends Component {
+export default class App extends Component {
 
-	@observable echo = 'test for echo';
-	
-	@computed get testForEcho() {
-		return this.echo;
+	movieApi = new MovieApi();
+	movieSearchStore = new MovieSearchStore(this.movieApi);
+
+	get testForEcho() {
+		return this.movieSearchStore.searchText;
 	}
-
+	
   render() {
-  	
-		setTimeout(() => {
-			this.echo = "vertigo";
-			console.log(this.echo);
-		}, 2000);
-		
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React {this.testForEcho}
-          </a>
-        </header>
+				react-omdb {this.testForEcho}
         <div>
-        	<MovieSearch />
-        	<MovieList />
+        	<MovieSearch movieSearchStore={this.movieSearchStore} />
+        	<MovieList movieSearchStore={this.movieSearchStore} />
+        	<MovieFavorites />
         </div>
       </div>
     );
   }
 }
-
-export default App;
-
 
