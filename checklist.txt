@@ -1,6 +1,6 @@
 tecnologias:
-[  ] react
-[  ] mobx
+[ok] react
+[ok] mobx
 [  ] jest
 [  ] styled components
 
