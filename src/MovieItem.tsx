@@ -11,7 +11,7 @@ export default class MovieItem extends Component<any> {
 	constructor(props) {
 		super(props);
 		this.movie = props.movie
-		this.movieFavoritesStore = props.movieFavoritesStore;
+		this.movieFavoritesStore = props.rootStore.movieFavoritesStore;
 	}
 	
 	render() {
@@ -21,7 +21,7 @@ export default class MovieItem extends Component<any> {
 				<p>{this.movie.Title}</p>
 				<FavoriteCheck 
 					movie={this.movie}
-					movieFavoritesStore={this.movieFavoritesStore} />
+					rootStore={this.props.rootStore} />
 			</div>
 		);
 	}

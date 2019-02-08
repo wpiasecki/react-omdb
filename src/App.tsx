@@ -6,20 +6,16 @@ import { observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
 import MovieSearch from "./MovieSearch";
-import MovieApi from "./MovieApi";
 import MovieFavorites from "./MovieFavorites";
-import MovieSearchStore from "./MovieSearchStore";
-import MovieFavoritesStore from "./MovieFavoritesStore";
+import RootStore from "./RootStore";
 
 @observer
 export default class App extends Component {
 
-	movieApi = new MovieApi();
-	movieSearchStore = new MovieSearchStore(this.movieApi);
-	movieFavoritesStore = new MovieFavoritesStore();
+	rootStore = new RootStore();
 
 	get testForEcho() {
-		return this.movieSearchStore.searchText;
+		return this.rootStore.movieSearchStore.searchText;
 	}
 	
   render() {
@@ -27,11 +23,8 @@ export default class App extends Component {
       <div className="App">
 				<h1>react-omdb {this.testForEcho}</h1>
         <div>
-        	<MovieSearch 
-        		movieSearchStore={this.movieSearchStore}
-        		movieFavoritesStore={this.movieFavoritesStore} />
-        	<MovieFavorites 
-        		movieFavoritesStore={this.movieFavoritesStore} />
+        	<MovieSearch rootStore={this.rootStore} />
+        	<MovieFavorites rootStore={this.rootStore} />
         </div>
       </div>
     );

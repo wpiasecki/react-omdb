@@ -11,7 +11,7 @@ export default class FavoriteCheck extends Component<any> {
 
 	constructor(props) {
 		super(props);
-		this.movieFavoritesStore = props.movieFavoritesStore;
+		this.movieFavoritesStore = props.rootStore.movieFavoritesStore;
 		this.movie = props.movie;
 		this.movie.isFavorite = this.movieFavoritesStore.isFavorite(this.movie);
 	}

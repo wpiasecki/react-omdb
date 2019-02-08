@@ -13,12 +13,11 @@ export default class MovieSearch extends Component<any> {
 
 	constructor(props) {
 		super(props);
-		this.movieSearchStore = props.movieSearchStore;
-		this.movieFavoritesStore = props.movieFavoritesStore;
+		this.movieSearchStore = props.rootStore.movieSearchStore;
+		this.movieFavoritesStore = props.rootStore.movieFavoritesStore;
 	}
 
 	render() {
-	
 		let searchMovies = event => 
 			this.movieSearchStore.search();
 		
@@ -40,7 +39,7 @@ export default class MovieSearch extends Component<any> {
 							<MovieItem 
 								movie={this.movieSearchStore.movie} 
 								key={this.movieSearchStore.movie.imdbID}
-								movieFavoritesStore={this.movieFavoritesStore} /> : null
+								rootStore={this.props.rootStore} /> : null
 					}
 				</div>
 			</div>

@@ -6,7 +6,7 @@ import { observable, computed } from 'mobx';
 export default class MovieFavoritesStore {
 	@observable favoriteMovies: any[];
 	
-	constructor() {
+	constructor(rootStore) {
 		this.favoriteMovies = this.getFavoritesFromStorage();
 	}
 	

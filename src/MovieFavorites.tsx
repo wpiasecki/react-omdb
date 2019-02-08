@@ -9,7 +9,7 @@ export default class MovieFavorites extends Component<any> {
 	
 	constructor(props) {
 		super(props);
-		this.movieFavoritesStore = props.movieFavoritesStore;
+		this.movieFavoritesStore = props.rootStore.movieFavoritesStore;
 	}
 
 	render() {
@@ -21,7 +21,7 @@ export default class MovieFavorites extends Component<any> {
 						<MovieItem 
 							movie={movie} 
 							key={movie.imdbID} 
-							movieFavoritesStore={this.movieFavoritesStore} />)
+							rootStore={this.props.rootStore} />)
 				}
 			</div>
 		);

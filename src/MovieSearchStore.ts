@@ -7,8 +7,8 @@ export default class MovieSearchStore {
 	@observable movieApi: MovieApi;
 	@observable searchText = '';
 
-	constructor(movieApi: MovieApi) {
-		this.movieApi = movieApi;
+	constructor(rootStore) {
+		this.movieApi = rootStore.movieApi;
 	}
 	
 	search() {
