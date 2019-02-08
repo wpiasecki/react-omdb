@@ -1,6 +1,6 @@
 import MovieApi from "./MovieApi";
 
-import { observable } from 'mobx';
+import { observable, computed } from 'mobx';
 
 export default class MovieSearchStore {
 
@@ -15,8 +15,8 @@ export default class MovieSearchStore {
 		this.movieApi.search({ t: this.searchText });
 	}
 	
-	get movies() {
-		return this.movieApi.movies;
+	get movie() {
+		return this.movieApi.movie;
 	}
 	
 }

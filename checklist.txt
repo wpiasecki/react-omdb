@@ -1,13 +1,14 @@
 tecnologias:
 [ok] react
 [ok] mobx
-[  ] jest
 [  ] styled components
+[  ] jest
 
 funcionalidades:
 [ok] chave api omdb
 [ok] integrar chave omdb com store/api mobx
-[  ] pesquisa de filmes
+[  ] pesquisa de filmes por nome e ano
+[  ] apresentar filme
 [  ] loading
 [  ] area de login
 [  ] filmes prediletos
