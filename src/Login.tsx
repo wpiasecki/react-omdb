@@ -6,9 +6,9 @@ import { observer } from 'mobx-react';
 @observer
 export default class Login extends React.Component<any> {
 
-	user;
-	password;
 	authStore;
+	
+	state = { user : '', password: '' };
 	
 	constructor(props) {
 		super(props);
@@ -17,9 +17,11 @@ export default class Login extends React.Component<any> {
 	
 	render() {
 		
-		let handleUser = event => this.user = event.target.value;
-		let handlePassword = event => this.password = event.target.value;
-		let doLogin = event => this.authStore.login(this.user, this.password);
+		let handleUser = event => this.setState({ user: event.target.value });
+		
+		let handlePassword = event => this.setState({ password: event.target.value });
+		
+		let doLogin = event => this.authStore.login(this.state.user, this.state.password);
 		
 		return this.authStore.isLogged() ? (
 				<div>
@@ -27,22 +29,23 @@ export default class Login extends React.Component<any> {
 					<a onClick={() => this.authStore.logout()}>Sair</a>
 				</div>
 			) : (
-				<div className="login-form">
-					<label>Usuário:</label>
-					<input 
-						type="text" 
-						value={this.user} 
-						maxLength={40}
-						onChange={handleUser} />
-					<label>Senha:</label>
-					<input 
-						type="password" 
-						onChange={handlePassword}
-						value={this.password}  />
-					<button onClick={doLogin}>
-						Login
-					</button>
-				</div>
+				<form>
+					<div className="login-form">
+						<label>Usuário:</label>
+						<input 
+							type="text" 
+							value={this.state.user} 
+							onChange={handleUser} />
+						<label>Senha:</label>
+						<input 
+							type="password" 
+							onChange={handlePassword}
+							value={this.state.password}  />
+						<button onClick={doLogin}>
+							Login
+						</button>
+					</div>
+				</form>
 			);
 	}
 
