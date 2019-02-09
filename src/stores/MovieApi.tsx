@@ -19,14 +19,12 @@ export default class MovieApi {
 	
 	search(params) {
 		console.log('movieapi params=', params);
-		this.movieFound = backtothefuture;
 		
 		let restParams = { ...params, apikey: 'a097c5c' };
 		
 		axios
-			//.get(this.api, { params: restParams })
-			//.then(movies => this.movieList = this.movieList.concat(movies));
-			//.then(res => console.log(res, params) );
+			.get(this.api, { params: restParams })
+			.then(res => this.movieFound = res.data);
 	}
 
 }

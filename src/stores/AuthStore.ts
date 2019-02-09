@@ -12,6 +12,7 @@ export default class AuthStore {
 	login(user, password) {
 		this.loggedUser = user;
 		localStorage.setItem('loggedUser', this.loggedUser);
+		return true;
 	}
 	
 	logout() {

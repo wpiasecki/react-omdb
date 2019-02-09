@@ -21,7 +21,11 @@ export default class Login extends React.Component<any> {
 		
 		let handlePassword = event => this.setState({ password: event.target.value });
 		
-		let doLogin = event => this.authStore.login(this.state.user, this.state.password);
+		let doLogin = event => { 
+			if (this.authStore.login(this.state.user, this.state.password)) {
+				this.setState({ user: '', password: '' });
+			}
+		};
 		
 		return this.authStore.isLogged() ? (
 				<div>
