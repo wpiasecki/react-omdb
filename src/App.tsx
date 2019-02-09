@@ -7,7 +7,8 @@ import { observer } from 'mobx-react';
 
 import MovieSearch from "./MovieSearch";
 import MovieFavorites from "./MovieFavorites";
-import RootStore from "./RootStore";
+import RootStore from "./stores/RootStore";
+import Login from "./Login";
 
 @observer
 export default class App extends Component {
@@ -22,6 +23,7 @@ export default class App extends Component {
     return (
       <div className="App">
 				<h1>react-omdb {this.testForEcho}</h1>
+				<Login rootStore={this.rootStore} />
         <div>
         	<MovieSearch rootStore={this.rootStore} />
         	<MovieFavorites rootStore={this.rootStore} />

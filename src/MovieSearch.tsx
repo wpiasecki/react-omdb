@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import MovieSearchStore from './MovieSearchStore';
+import MovieSearchStore from './stores/MovieSearchStore';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import MovieItem from "./MovieItem";
