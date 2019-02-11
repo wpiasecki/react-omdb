@@ -11,8 +11,12 @@ Recursos:
 
 * Pesquisa de filmes
 
-!(Pesquisa de Filmes)[https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/1pesquisa.png]
+![Pesquisa de Filmes](https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/1pesquisa.png)
 
 * Login
+
+![Login](https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/2login.png)
+
 * Filmes favoritos (de acordo com o login)
 
+![Filmes favoritos](https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/3favoritos.png)
