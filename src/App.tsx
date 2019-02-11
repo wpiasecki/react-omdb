@@ -5,9 +5,10 @@ import './App.css';
 import { observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Login from "./Login";
+import Menu from './Menu';
 import MovieSearch from "./MovieSearch";
 import MovieFavorites from "./MovieFavorites";
 import RootStore from "./stores/RootStore";
@@ -19,7 +20,12 @@ import styled from 'styled-components';
 @observer
 export default class App extends Component {
 
-	rootStore = new RootStore();
+	rootStore;
+	
+	constructor(props) {
+		super(props);
+		this.rootStore = new RootStore();
+	}
 
   render() {
     return (
@@ -27,11 +33,7 @@ export default class App extends Component {
 		    <AppContainer>
 		    	<Header>
 						<Title>react-omdb</Title>
-						<Menu>
-							<Link to="/">Buscar</Link>
-							<Link to="/favorites">Favoritos</Link>
-							<Link to="/login">Login</Link>
-						</Menu>
+						<Menu rootStore={this.rootStore} />
 					</Header>
 		      <div>
 		      	<Route 
@@ -56,11 +58,6 @@ export default class App extends Component {
     );
   }
 }
-
-const Menu = styled.ul``;
-const SearchLink = styled.li``;
-const FavoritesLink = styled(SearchLink)``;
-const LoginLink = styled(SearchLink)``;
 
 const AppContainer = styled.div.attrs({ className: 'container' })`
 	border: 1px solid red;

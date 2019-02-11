@@ -3,6 +3,8 @@ import React from 'react';
 import { observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
+import { Redirect } from 'react-router-dom';
+
 import styled from 'styled-components';
 
 
@@ -29,12 +31,7 @@ export default class Login extends React.Component<any> {
 		};
 		
 		return this.authStore.isLogged() ? (
-				<LoggedArea>
-					<p>
-						Entrou como {this.authStore.loggedUser}. 
-						<LogoutLink onClick={() => this.authStore.logout()}>Sair</LogoutLink>
-					</p>
-				</LoggedArea>
+				<Redirect to="/" />
 			) : (
 				<form>
 					<LoginForm>
@@ -62,17 +59,11 @@ export default class Login extends React.Component<any> {
 
 }
 
-const LogoutLink = styled.a``;
 
-
-const LoggedArea = styled.div`
+const LoginForm = styled.div.attrs({ className: 'form-group form-row' })`
 	border: 3px solid lightgray;
 	border-radius: 10px;
 	padding: 0.5em;
-`;
-
-
-const LoginForm = styled(LoggedArea).attrs({ className: 'form-group form-row' })`
 `;
 
 const LoginInput = styled.input.attrs({ 
