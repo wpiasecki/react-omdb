@@ -5,31 +5,66 @@ import './App.css';
 import { observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
+import Login from "./Login";
 import MovieSearch from "./MovieSearch";
 import MovieFavorites from "./MovieFavorites";
 import RootStore from "./stores/RootStore";
-import Login from "./Login";
+
+
+import styled from 'styled-components';
+
 
 @observer
 export default class App extends Component {
 
 	rootStore = new RootStore();
 
-	get testForEcho() {
-		return this.rootStore.movieSearchStore.searchText;
-	}
-	
   render() {
     return (
-      <div className="App">
-				<h1>react-omdb {this.testForEcho}</h1>
-				<Login rootStore={this.rootStore} />
-        <div>
-        	<MovieSearch rootStore={this.rootStore} />
-        	<MovieFavorites rootStore={this.rootStore} />
-        </div>
-      </div>
+    	<BrowserRouter>
+		    <AppContainer>
+		    	<Header>
+						<Title>react-omdb</Title>
+						<Menu>
+							<Link to="/">Buscar</Link>
+							<Link to="/favorites">Favoritos</Link>
+							<Link to="/login">Login</Link>
+						</Menu>
+					</Header>
+		      <div>
+		      	<Route 
+		      		path="/" 
+		      		exact 
+		      		render={props => <MovieSearch rootStore={this.rootStore} />} 
+		    		/>
+		      		
+		      	<Route 
+		      		path="/favorites" 
+		      		render={props => <MovieFavorites rootStore={this.rootStore} />} 
+		    		/>
+		      	
+		      	<Route 
+		      		path="/login" 
+		      		render={props => <Login rootStore={this.rootStore} />} 
+		    		/>
+		      	
+		      </div>
+		    </AppContainer>
+      </BrowserRouter>
     );
   }
 }
 
+const Menu = styled.ul``;
+const SearchLink = styled.li``;
+const FavoritesLink = styled(SearchLink)``;
+const LoginLink = styled(SearchLink)``;
+
+const AppContainer = styled.div.attrs({ className: 'container' })`
+	border: 1px solid red;
+`;
+
+const Header = styled.div.attrs({ className: 'row' })``;
+const Title = styled.h1.attrs({ className: 'col' })`padding: 0.5em;`;

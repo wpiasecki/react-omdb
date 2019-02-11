@@ -3,11 +3,13 @@ import React from 'react';
 import { observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 
+import styled from 'styled-components';
+
+
 @observer
 export default class Login extends React.Component<any> {
 
 	authStore;
-	
 	state = { user : '', password: '' };
 	
 	constructor(props) {
@@ -18,7 +20,6 @@ export default class Login extends React.Component<any> {
 	render() {
 		
 		let handleUser = event => this.setState({ user: event.target.value });
-		
 		let handlePassword = event => this.setState({ password: event.target.value });
 		
 		let doLogin = event => { 
@@ -28,29 +29,66 @@ export default class Login extends React.Component<any> {
 		};
 		
 		return this.authStore.isLogged() ? (
-				<div>
-					<p>Entrou como {this.authStore.loggedUser}.</p>
-					<a onClick={() => this.authStore.logout()}>Sair</a>
-				</div>
+				<LoggedArea>
+					<p>
+						Entrou como {this.authStore.loggedUser}. 
+						<LogoutLink onClick={() => this.authStore.logout()}>Sair</LogoutLink>
+					</p>
+				</LoggedArea>
 			) : (
 				<form>
-					<div className="login-form">
-						<label>Usuário:</label>
-						<input 
-							type="text" 
-							value={this.state.user} 
-							onChange={handleUser} />
-						<label>Senha:</label>
-						<input 
-							type="password" 
-							onChange={handlePassword}
-							value={this.state.password}  />
-						<button onClick={doLogin}>
-							Login
-						</button>
-					</div>
+					<LoginForm>
+						<div className="col">
+							<label htmlFor="login-input">Usuário:</label>
+							<LoginInput 
+								value={this.state.user} 
+								onChange={handleUser} />
+						</div>
+						<div className="col">
+							<label>Senha:</label>
+							<PasswordInput 
+								onChange={handlePassword}
+								value={this.state.password}  />
+						</div>
+						<div className="col">
+							<LoginButton onClick={doLogin}>
+								Login
+							</LoginButton>
+						</div>
+					</LoginForm>
 				</form>
 			);
 	}
 
 }
+
+const LogoutLink = styled.a``;
+
+
+const LoggedArea = styled.div`
+	border: 3px solid lightgray;
+	border-radius: 10px;
+	padding: 0.5em;
+`;
+
+
+const LoginForm = styled(LoggedArea).attrs({ className: 'form-group form-row' })`
+`;
+
+const LoginInput = styled.input.attrs({ 
+	className: 'form-control', 
+	type: 'input',
+	id: 'login-input',
+	placeholder: 'Usuário'
+})``;
+
+const PasswordInput = styled.input.attrs({ 
+	className: 'form-control', 
+	type: 'password',
+	placeholder: 'Senha'
+})``;
+
+const LoginButton = styled.button.attrs( { className: 'btn btn-primary' })`
+	margin-top: 0.5em;
+`;
+
