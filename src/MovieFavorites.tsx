@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MovieItem from './MovieItem';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
+import { Title } from './App';
 
 @observer
 export default class MovieFavorites extends Component<any> {
@@ -19,7 +20,7 @@ export default class MovieFavorites extends Component<any> {
 		return this.authStore.isLogged() ?
 		(
 			<div>
-				<p>MovieFavorites</p>
+				<Title>Favoritos</Title>
 				{
 					this.movieFavoritesStore.userFavoriteMovies.map(movie => 
 						<MovieItem 

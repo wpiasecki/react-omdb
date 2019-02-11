@@ -6,6 +6,7 @@ import { observer } from 'mobx-react';
 import { Redirect } from 'react-router-dom';
 
 import styled from 'styled-components';
+import { Title } from './App';
 
 
 @observer
@@ -34,6 +35,7 @@ export default class Login extends React.Component<any> {
 				<Redirect to="/" />
 			) : (
 				<form>
+					<Title>Login</Title>
 					<LoginForm>
 						<label htmlFor="login-input">Usuário:</label>
 						<LoginInput 
@@ -55,16 +57,15 @@ export default class Login extends React.Component<any> {
 
 
 const LoginForm = styled.div.attrs({ className: 'form-group' })`
-	border: 3px solid lightgray;
+	border: 1px solid #999;
 	border-radius: 10px;
 	padding: 1em;
 	width: 300px;
 	margin: 0 auto;
-	margin-top: 50px;
 `;
 
 const LoginInput = styled.input.attrs({ 
-	className: 'form-control', 
+	className: 'form-control mb-2', 
 	type: 'input',
 	id: 'login-input',
 	placeholder: 'Usuário'
@@ -79,4 +80,5 @@ const PasswordInput = styled.input.attrs({
 const LoginButton = styled.button.attrs( { className: 'btn btn-primary' })`
 	margin-top: 0.5em;
 `;
+
 

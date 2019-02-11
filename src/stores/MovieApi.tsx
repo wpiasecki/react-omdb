@@ -24,7 +24,7 @@ export default class MovieApi {
 		
 		axios
 			.get(this.api, { params: restParams })
-			.then(res => this.movieFound = res.data);
+			.then(res => this.movieFound = res.data.Title ? res.data : null);
 	}
 
 }

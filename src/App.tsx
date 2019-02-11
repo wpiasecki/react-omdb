@@ -32,7 +32,7 @@ export default class App extends Component {
     	<BrowserRouter>
 		    <AppContainer>
 		    	<Header>
-						<Title>react-omdb</Title>
+						<AppTitle>react-omdb</AppTitle>
 						<Menu rootStore={this.rootStore} />
 					</Header>
 		      <div>
@@ -61,7 +61,13 @@ export default class App extends Component {
 
 const AppContainer = styled.div.attrs({ className: 'container' })``;
 
-const Header = styled.nav.attrs({ className: 'navbar bg-light' })``;
-const Title = styled.h1.attrs({ className: 'navbar-brand' })`padding: 0.5em;`;
+const Header = styled.nav.attrs({ className: 'navbar mb-3' })`
+	border-bottom: 1px solid lightgray;
+`;
 
+const AppTitle = styled.h1.attrs({ className: 'navbar-brand' })`font-weight: bold`;
 
+export const Title = styled.h2.attrs({ className: 'mb-3' })`
+	font-size: 1.5em;
+	text-align: center;
+`;

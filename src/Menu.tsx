@@ -36,7 +36,7 @@ export default class Menu extends React.Component<any> {
 const MenuWrapper = styled.ul.attrs({ className: 'nav' })``;
 const MenuItem = styled.div.attrs({ className: 'nav-item' })`
 	padding: 0.5em;
-	border-bottom: 2px solid #555;
+	border-bottom: 1px solid #555;
 	width: 90px;
 	margin: 0 0.2em;
 	text-align: center

@@ -5,14 +5,15 @@ import { observable, computed } from 'mobx';
 export default class MovieSearchStore {
 
 	@observable movieApi: MovieApi;
-	@observable searchText = '';
+	@observable searchTitle = '';
+	@observable searchYear = '';
 
 	constructor(rootStore) {
 		this.movieApi = rootStore.movieApi;
 	}
 	
 	search() {
-		this.movieApi.search({ t: this.searchText });
+		this.movieApi.search({ t: this.searchTitle, y: this.searchYear });
 	}
 	
 	get movie() {
