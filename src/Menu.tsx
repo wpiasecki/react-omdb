@@ -14,18 +14,17 @@ export default class Menu extends React.Component<any> {
 	render() {
 		return (
 			<MenuWrapper>
-				<Link to="/">Buscar Filmes</Link>
-				{ 
-					this.authStore.isLogged() 
-						? <Link to="/favorites">Favoritos</Link>
-						: null
-				}
-				{ 
-					this.authStore.isLogged() 
-						? <Link onClick={() => this.authStore.logout()} to="/">Logout</Link>
-						: <Link to="/login">Login</Link>
-				}
-				
+					<MenuItem><Link to="/">Buscar</Link></MenuItem>
+					{ 
+						this.authStore.isLogged() 
+							? <MenuItem><Link to="/favorites">Favoritos</Link></MenuItem>
+							: null
+					}
+					{ 
+						this.authStore.isLogged() 
+							? <MenuItem><Link onClick={() => this.authStore.logout()} to="/">Logout</Link></MenuItem>
+							: <MenuItem><Link to="/login">Login</Link></MenuItem>
+					}
 			</MenuWrapper>
 		);
 	}
@@ -34,10 +33,21 @@ export default class Menu extends React.Component<any> {
 }
 
 
-const MenuWrapper = styled.ul``;
-const SearchLink = styled.li``;
-const FavoritesLink = styled(SearchLink)``;
-const LoginLink = styled(SearchLink)``;
-
-const LogoutLink = styled(SearchLink);
+const MenuWrapper = styled.ul.attrs({ className: 'nav' })``;
+const MenuItem = styled.div.attrs({ className: 'nav-item' })`
+	padding: 0.5em;
+	border-bottom: 2px solid #555;
+	width: 90px;
+	margin: 0 0.2em;
+	text-align: center
+	
+	a {
+		color: #555;
+	}
+	a:hover {
+		font-weight: bold;
+		color: #555;
+		text-decoration: none;
+	}
+`;
 

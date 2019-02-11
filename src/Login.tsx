@@ -35,23 +35,17 @@ export default class Login extends React.Component<any> {
 			) : (
 				<form>
 					<LoginForm>
-						<div className="col">
-							<label htmlFor="login-input">Usuário:</label>
-							<LoginInput 
-								value={this.state.user} 
-								onChange={handleUser} />
-						</div>
-						<div className="col">
-							<label>Senha:</label>
-							<PasswordInput 
-								onChange={handlePassword}
-								value={this.state.password}  />
-						</div>
-						<div className="col">
-							<LoginButton onClick={doLogin}>
-								Login
-							</LoginButton>
-						</div>
+						<label htmlFor="login-input">Usuário:</label>
+						<LoginInput 
+							value={this.state.user} 
+							onChange={handleUser} />
+						<label>Senha:</label>
+						<PasswordInput 
+							onChange={handlePassword}
+							value={this.state.password}  />
+						<LoginButton onClick={doLogin}>
+							Login
+						</LoginButton>
 					</LoginForm>
 				</form>
 			);
@@ -60,10 +54,13 @@ export default class Login extends React.Component<any> {
 }
 
 
-const LoginForm = styled.div.attrs({ className: 'form-group form-row' })`
+const LoginForm = styled.div.attrs({ className: 'form-group' })`
 	border: 3px solid lightgray;
 	border-radius: 10px;
-	padding: 0.5em;
+	padding: 1em;
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 50px;
 `;
 
 const LoginInput = styled.input.attrs({ 

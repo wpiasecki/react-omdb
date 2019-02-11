@@ -59,9 +59,9 @@ export default class App extends Component {
   }
 }
 
-const AppContainer = styled.div.attrs({ className: 'container' })`
-	border: 1px solid red;
-`;
+const AppContainer = styled.div.attrs({ className: 'container' })``;
 
-const Header = styled.div.attrs({ className: 'row' })``;
-const Title = styled.h1.attrs({ className: 'col' })`padding: 0.5em;`;
+const Header = styled.nav.attrs({ className: 'navbar bg-light' })``;
+const Title = styled.h1.attrs({ className: 'navbar-brand' })`padding: 0.5em;`;
+
+
