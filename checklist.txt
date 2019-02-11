@@ -10,11 +10,17 @@ funcionalidades:
 [ok] pesquisa de filmes por nome e ano
 [ok] area de login
 [ok] filmes prediletos
-[  ] apresentar filme
-[  ] loading ao buscar filme
-[  ] validar inputs
+[ok] apresentar filme
+
 
 projeto:
 [  ] otimizar webpack
 [  ] cobertura de testes
+[  ] escrever readme
 
+
+melhorias:
+[  ] loading ao buscar filme
+[  ] validar inputs
+[  ] na tela de pesquisar filmes, mensagem "Nenhum filme encontrado" não deve ser apresentada inicialmente
+[ok] substituir checkbox de favorito por ícone mais significativo (estrela, por exemplo)

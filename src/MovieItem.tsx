@@ -67,9 +67,9 @@ const MovieInformation = styled.ul.attrs({ className: '' })`
 	flex: 1;
 `;
 const FavoriteCheckCol = styled.div.attrs({ className: '' })`
-	padding: 1em;
+	padding: 0 1em;
 	float: right;
 	text-align: right;
-	width: 50px;
+	width: 65px;
 `;
 
