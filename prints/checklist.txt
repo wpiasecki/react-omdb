@@ -17,7 +17,7 @@ funcionalidades:
 projeto:
 [  ] otimizar webpack
 [ok] cobertura de testes
-[  ] escrever readme
+[ok] escrever readme
 
 
 melhorias:
