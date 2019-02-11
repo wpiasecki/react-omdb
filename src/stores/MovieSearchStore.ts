@@ -13,7 +13,7 @@ export default class MovieSearchStore {
 	}
 	
 	search() {
-		this.movieApi.search({ t: this.searchTitle, y: this.searchYear });
+		return this.movieApi.search({ t: this.searchTitle, y: this.searchYear });
 	}
 	
 	get movie() {

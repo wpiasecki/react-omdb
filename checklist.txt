@@ -2,7 +2,8 @@ tecnologias:
 [ok] react
 [ok] mobx
 [ok] styled components
-[  ] jest
+[ok] jest
+
 
 funcionalidades:
 [ok] chave api omdb
@@ -15,7 +16,7 @@ funcionalidades:
 
 projeto:
 [  ] otimizar webpack
-[  ] cobertura de testes
+[ok] cobertura de testes
 [  ] escrever readme
 
 
@@ -24,3 +25,5 @@ melhorias:
 [  ] validar inputs
 [  ] na tela de pesquisar filmes, mensagem "Nenhum filme encontrado" não deve ser apresentada inicialmente
 [ok] substituir checkbox de favorito por ícone mais significativo (estrela, por exemplo)
+
+

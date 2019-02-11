@@ -34,7 +34,7 @@ export default class MovieItem extends Component<any> {
 					<li><b>Avaliações:</b>
 						<ul>
 						{ this.movie.Ratings.map(rating => 
-							<li>{rating.Source}: {rating.Value}</li>)
+							<li key={rating.Source}>{rating.Source}: {rating.Value}</li>)
 						}
 						</ul>
 					</li>
