@@ -20,3 +20,16 @@ Recursos:
 * Filmes favoritos (de acordo com o login)
 
 ![Filmes favoritos](https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/3favoritos.png)
+
+* Cobertura de testes
+
+![Cobertura de testes](https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/4test.png)
+
+* Aba "network" em desenvolvimento
+
+![Desenvolvimento](https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/5dev.png)
+
+* Aba "network" em produção (com `npm build` e `serve -s build`)
+
+![Produção](https://raw.githubusercontent.com/wpiasecki/react-omdb/master/prints/6production.png)
+
