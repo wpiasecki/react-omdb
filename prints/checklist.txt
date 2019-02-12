@@ -21,11 +21,15 @@ projeto:
 [ok] escrever readme
 
 
-melhorias:
-[  ] loading ao buscar filme
-[  ] validar inputs (login, pesquisa)
-[  ] na tela de pesquisar filmes, mensagem "Nenhum filme encontrado" não deve ser apresentada inicialmente
-[  ] utilizar métodos (e não funções) para eventos da interface grafica
+validações e melhorias:
+[ok] loading ao buscar filme
+[ok] máscara de ano
+[ok] validar input de pesquisa
+[ok] validar inputs de login
+[ok] na tela de pesquisar filmes, mensagem "Nenhum filme encontrado" não deve ser apresentada inicialmente
+[ok] nome do usuário logado
+[ok] logout ir para tela de login
+[ok] utilizar métodos (e não funções) para eventos da interface grafica (métodos são testáveis)
 [ok] substituir checkbox de favorito por ícone mais significativo (estrela, por exemplo)
 
 

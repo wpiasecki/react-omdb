@@ -14,6 +14,11 @@ export default class Menu extends React.Component<any> {
 	render() {
 		return (
 			<MenuWrapper>
+					{ 
+						this.authStore.isLogged() 
+							? <MenuToast>Olá, {this.authStore.loggedUser}</MenuToast>
+							: null 
+					}
 					<MenuItem><Link to="/">Buscar</Link></MenuItem>
 					{ 
 						this.authStore.isLogged() 
@@ -22,7 +27,7 @@ export default class Menu extends React.Component<any> {
 					}
 					{ 
 						this.authStore.isLogged() 
-							? <MenuItem><Link onClick={() => this.authStore.logout()} to="/">Logout</Link></MenuItem>
+							? <MenuItem><Link onClick={() => this.authStore.logout()} to="/login">Logout</Link></MenuItem>
 							: <MenuItem><Link to="/login">Login</Link></MenuItem>
 					}
 			</MenuWrapper>
@@ -51,3 +56,8 @@ const MenuItem = styled.div.attrs({ className: 'nav-item' })`
 	}
 `;
 
+const MenuToast = styled(MenuItem)`
+	font-size: 0.9em;
+	border: 0;
+	color: #666;
+`;
